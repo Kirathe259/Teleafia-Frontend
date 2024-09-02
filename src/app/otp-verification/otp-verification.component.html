@@ -1,1 +1,29 @@
-<p>otp-verification works!</p>
+<div class="container">
+  <div class="box">
+    <h3 class="title">TeleAfia</h3>
+    <h5 class="subtitle">OTP Verification</h5>
+    <p class="description">
+      A verification code has been sent to <span class="email">{{ email }}</span>. If the email address is incorrect, you can go back and change it.
+    </p>
+    <p>Enter OTP sent to your device here</p>
+    <form (submit)="handleVerifyOTP($event)">
+      <div class="otp-inputs">
+        <input
+          *ngFor="let control of otpArray.controls; let i = index"
+          type="text"
+          maxlength="1"
+          [formControl]="getOtpControl(i)"
+          (input)="handleInputChange(i, $event)"
+          [attr.id]="'otp-' + i"
+          class="otp-field"
+        />
+      </div>
+      <button type="submit" [disabled]="verifyLoading" class="btn-verify">
+        {{ verifyLoading ? 'Verifying...' : 'Verify OTP' }}
+      </button>
+    </form>
+    <button (click)="handleResendOTP()" [disabled]="resendLoading" class="btn-resend">
+      {{ resendLoading ? 'Resending...' : 'RESEND OTP' }}
+    </button>
+  </div>
+</div>
