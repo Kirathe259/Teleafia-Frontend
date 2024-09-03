@@ -1,10 +1,7 @@
-// src/app/components/signup/signup.component.ts
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar'; // SnackBar service
 import { Router } from '@angular/router';
-import { AuthService } from './../services/auth.service'; // Import AuthService
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,16 +18,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule // Ensure all necessary Angular Material modules are imported
   ],
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  providers: [MatSnackBar] // Provide the service here, if needed
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
   showPassword = false;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
     this.signUpForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -59,16 +57,11 @@ export class SignUpComponent {
       return;
     }
 
-    const { name, email, phoneNumber, idNumber, password, gender, dateOfBirth, residence } = this.signUpForm.value;
+    const userData = this.signUpForm.value;
+    console.log('User Data:', userData);
 
-    this.authService.signup(name, email, phoneNumber, idNumber, password, gender, dateOfBirth, residence).subscribe({
-      next: () => {
-        this.snackBar.open('Registration successful!', 'Close', { duration: 2000 });
-        this.router.navigate(['/verify-otp'], { state: { email } });
-      },
-      error: (err) => {
-        this.snackBar.open(err, 'Close', { duration: 3000 });
-      }
-    });
+    // Mock successful response
+    this.snackBar.open('Registration successful!', 'Close', { duration: 2000 });
+    setTimeout(() => this.router.navigate(['/verify-otp'], { state: { email: userData.email } }), 3000);
   }
 }
