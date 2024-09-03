@@ -1,0 +1,30 @@
+.login-card {
+  width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  color: #c00100;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.forgot-password-link {
+  float: right;
+  color: #c00100;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.register-link {
+  margin-top: 20px;
+}

@@ -1,7 +1,9 @@
+// src/app/components/verify-otp/otp-verification.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, FormArray, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from './../services/auth.service'; // Import AuthService
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
@@ -11,7 +13,7 @@ import { lastValueFrom } from 'rxjs';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './otp-verification.component.html',
-  styleUrls: ['./otp-verification.component.css'],
+  styleUrls: ['./otp-verification.component.css']
 })
 export class VerifyOtpComponent implements OnInit {
   otpForm: FormGroup;
@@ -19,15 +21,10 @@ export class VerifyOtpComponent implements OnInit {
   verifyLoading = false;
   resendLoading = false;
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router,
-    private snackBar: MatSnackBar
-  ) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private snackBar: MatSnackBar) {
     this.otpForm = this.fb.group({
       otp: this.fb.array([
-        new FormControl('', Validators.required),  // Adding Validators for better form handling
+        new FormControl('', Validators.required),
         new FormControl('', Validators.required),
         new FormControl('', Validators.required),
         new FormControl('', Validators.required)
@@ -51,7 +48,7 @@ export class VerifyOtpComponent implements OnInit {
   handleInputChange(index: number, event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const value = inputElement.value;
-    const control = this.getOtpControl(index);  // Using the getter method for proper typing
+    const control = this.getOtpControl(index);
     control.setValue(value);
 
     if (value && index < this.otpArray.length - 1) {
@@ -65,9 +62,10 @@ export class VerifyOtpComponent implements OnInit {
 
     try {
       const enteredOtp = this.otpForm.value.otp.join('');
-      const response = await lastValueFrom(this.http.post('/api/verifyotp', { enteredOtp }));
+      const response = await lastValueFrom(this.authService.verifyOtp(this.email, enteredOtp));
 
       if (response) {
+        this.snackBar.open('OTP verified successfully.', '', { duration: 3000 });
         this.router.navigate(['/login']);
       } else {
         this.snackBar.open('Verification failed. Please try again.', '', { duration: 3000 });
@@ -84,7 +82,7 @@ export class VerifyOtpComponent implements OnInit {
     this.resendLoading = true;
 
     try {
-      const response = await lastValueFrom(this.http.post('/api/resendotp', { email: this.email }));
+      const response = await lastValueFrom(this.authService.resendOtp(this.email));
 
       if (response) {
         this.snackBar.open('OTP resent successfully.', '', { duration: 3000 });
