@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http'; // Ensure HttpClientModule is imported
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSpinner } from '@angular/material/progress-spinner';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Corrected MatSpinner import
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-forgot-password',
@@ -15,12 +16,14 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
   styleUrls: ['./forgot-password.component.css'],
   standalone: true,
   imports: [
-    CommonModule, // Add CommonModule to imports
-    ReactiveFormsModule, 
-    MatButtonModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
-    MatSpinner
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule, // Ensure HttpClientModule is included here
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule, // Corrected module import
+    MatCardModule
   ]
 })
 export class ForgotPasswordComponent {
