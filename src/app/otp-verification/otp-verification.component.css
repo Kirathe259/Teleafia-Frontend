@@ -18,16 +18,24 @@
 .title {
   color: #c00100;
   font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 
 .subtitle {
   font-weight: bold;
+  font-size: 20px;
   margin-bottom: 15px;
 }
 
 .description {
   margin-bottom: 10px;
   font-size: 15px;
+}
+
+.directions {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .email {

@@ -5,12 +5,13 @@ import { VerifyOtpComponent } from './otp-verification/otp-verification.componen
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SignUpComponent, VerifyOtpComponent, LoginComponent, ForgotPasswordComponent, PageNotFoundComponent],
+  imports: [RouterOutlet, SignUpComponent, VerifyOtpComponent, LoginComponent, ForgotPasswordComponent, ResetPasswordComponent, PageNotFoundComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
