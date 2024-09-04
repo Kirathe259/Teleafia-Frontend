@@ -12,6 +12,7 @@
   border-radius: 8px;
   background-color: white;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Added box shadow */
 }
 
 .title {
@@ -21,11 +22,12 @@
 
 .subtitle {
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .description {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .email {
@@ -39,7 +41,8 @@
 }
 
 .otp-field {
-  width: 60px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   margin-right: 5px;
 }
@@ -49,7 +52,7 @@
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -58,7 +61,7 @@
   color: #c00100;
   padding: 10px 20px;
   border: 1px solid #c00100;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
 }

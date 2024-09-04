@@ -1,15 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-verify-otp',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
   templateUrl: './otp-verification.component.html',
   styleUrls: ['./otp-verification.component.css'],
 })
@@ -27,7 +40,7 @@ export class VerifyOtpComponent implements OnInit {
   ) {
     this.otpForm = this.fb.group({
       otp: this.fb.array([
-        new FormControl('', Validators.required),  // Adding Validators for better form handling
+        new FormControl('', Validators.required),
         new FormControl('', Validators.required),
         new FormControl('', Validators.required),
         new FormControl('', Validators.required)
@@ -51,11 +64,19 @@ export class VerifyOtpComponent implements OnInit {
   handleInputChange(index: number, event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const value = inputElement.value;
-    const control = this.getOtpControl(index);  // Using the getter method for proper typing
+    const control = this.getOtpControl(index);
     control.setValue(value);
 
-    if (value && index < this.otpArray.length - 1) {
-      document.getElementById(`otp-${index + 1}`)?.focus();
+    if ((event as KeyboardEvent).key === 'Backspace' && !value && index > 0) {
+      const previousElement = document.getElementById(`otp-${index - 1}`);
+      if (previousElement) {
+        previousElement.focus();
+      }
+    } else if (value && index < this.otpArray.length - 1) {
+      const nextElement = document.getElementById(`otp-${index + 1}`);
+      if (nextElement) {
+        nextElement.focus();
+      }
     }
   }
 
