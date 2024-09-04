@@ -27,10 +27,8 @@
             <mat-option value="Other">Other</mat-option>
           </mat-select>
         </mat-form-field>
-
       </div>
       <div class="right-column">
-        
         <mat-form-field appearance="fill">
           <mat-label>Date of Birth</mat-label>
           <input matInput formControlName="dateOfBirth" type="date" required>
@@ -56,7 +54,6 @@
       </div>
     </div>
     <button mat-raised-button color="primary" type="submit" class="full-width">Signup</button>
-    <p class="login-link">Already have an account? <a routerLink="/login">Login</a></p>
+    <p class="login-link">Already have an account? <a href="/login" (click)="navigateToLogin()">Login</a></p>
   </form>
 </mat-card>
-

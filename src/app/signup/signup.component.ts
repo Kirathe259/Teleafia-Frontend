@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar'; // SnackBar service
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -22,11 +22,11 @@ import { MatCard, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
     MatCard,
     MatCardTitle,
     MatCardSubtitle,
-    MatIconModule // Ensure all necessary Angular Material modules are imported
+    MatIconModule
   ],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-  providers: [MatSnackBar] // Provide the service here, if needed
+  providers: [MatSnackBar]
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
@@ -66,5 +66,9 @@ export class SignUpComponent {
     // Mock successful response
     this.snackBar.open('Registration successful!', 'Close', { duration: 2000 });
     setTimeout(() => this.router.navigate(['/verify-otp'], { state: { email: userData.email } }), 3000);
+  }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

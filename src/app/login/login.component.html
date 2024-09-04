@@ -30,7 +30,8 @@
 
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-    <p class="register-link">Don't have an account? <a routerLink="/register">Sign Up</a></p>
+    <p class="register-link">Don't have an account? <a href="/signup" (click)="navigateToSignup()">Sign Up</a></p>
+    
   </form>
 </mat-card>
 

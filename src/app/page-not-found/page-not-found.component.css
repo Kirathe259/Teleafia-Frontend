@@ -1,0 +1,21 @@
+/* Style for the Not Found page */
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #dfdfdf; /* Background color */
+  color: red; /* Text color */
+  text-align: center; /* Center align text */
+  padding: 20px; /* Optional padding */
+}
+
+h1 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  margin: 0;
+}
+
+p {
+  font-size: 1.2rem; /* Adjust font size as needed */
+}
