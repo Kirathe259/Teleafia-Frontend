@@ -1,30 +1,80 @@
 .login-card {
-  width: 400px;
+  width: 30%;
   margin: 100px auto;
-  padding: 20px;
+  padding: 0px, 0px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
 }
 
 .title {
   color: #c00100;
   font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .subtitle {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: bold;
+  font-size: 18px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.mat-form-field {
+  min-width: 100%; /* Ensure each field takes the full width of the container */
+  margin-bottom: 20px;
+}
+
+.mat-form-field email-field {
+  width: 180px;
+}
+
+.mat-form-field password-field {
+  width: 180px;
 }
 
 .forgot-password-link {
-  float: right;
   color: #c00100;
+  margin-bottom: 20px;
+  display: block; /* Ensures it spans the full width for better alignment */
+}
+
+button[type="submit"] {
+  width: 100%; /* Adjust to occupy full width of the form container */
+  height: 45px;
+  margin-top: 10px;
 }
 
 .error-message {
   color: red;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .register-link {
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: blue; /* Styling the sign-up link in blue color */
+  text-decoration: none; /* Optional: Removes underline from the link */
+}
+
+.register-link a:hover {
+  text-decoration: underline; /* Optional: Adds underline on hover for better UX */
 }

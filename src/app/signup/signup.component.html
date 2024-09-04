@@ -1,62 +1,62 @@
-<div class="sign-up-container">
+<mat-card class="signup-card">
+  <mat-card-title class="title">TeleAfia</mat-card-title>
+  <mat-card-subtitle class="subtitle">Signup</mat-card-subtitle>
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <h1>TeleAfia</h1>
-    <h3>Signup</h3>
+    <div class="form-container">
+      <div class="left-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" type="email" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber" type="text" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>ID Number</mat-label>
-      <input matInput formControlName="idNumber" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender" required>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Phone Number</mat-label>
-      <input matInput formControlName="phoneNumber" type="text" required>
-    </mat-form-field>
+      </div>
+      <div class="right-column">
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput formControlName="dateOfBirth" type="date" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender" required>
-        <mat-option value="Male">Male</mat-option>
-        <mat-option value="Female">Female</mat-option>
-        <mat-option value="Other">Other</mat-option>
-      </mat-select>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Residence</mat-label>
+          <input matInput formControlName="residence" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Date of Birth</mat-label>
-      <input matInput formControlName="dateOfBirth" type="date" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" [attr.aria-pressed]="showPassword">
+            <mat-icon>{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Residence</mat-label>
-      <input matInput formControlName="residence" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Password</mat-label>
-      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
-      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" [attr.aria-pressed]="showPassword">
-        <mat-icon>{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Confirm Password</mat-label>
-      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
-      <!-- Optionally, add a separate toggle button or leave as-is -->
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" class="full-width">Register</button>
+        <mat-form-field appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" class="full-width">Signup</button>
+    <p class="login-link">Already have an account? <a routerLink="/login">Login</a></p>
   </form>
-</div>
+</mat-card>
 

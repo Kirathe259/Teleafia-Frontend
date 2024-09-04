@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCard, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,6 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatCard,
+    MatCardTitle,
+    MatCardSubtitle,
     MatIconModule // Ensure all necessary Angular Material modules are imported
   ],
   templateUrl: './signup.component.html',
@@ -33,7 +37,6 @@ export class SignUpComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{9}')]],
-      idNumber: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       confirmPassword: ['', Validators.required],
       gender: ['', Validators.required],
