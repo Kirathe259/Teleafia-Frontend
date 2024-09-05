@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +29,8 @@ interface ApiResponse {
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
-  ]
+    HttpClientModule
+  ],
 })
 export class ResetPasswordComponent implements OnInit {
   resetPasswordForm: FormGroup;
@@ -45,11 +46,14 @@ export class ResetPasswordComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar
   ) {
-    this.resetPasswordForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      newPassword: ['', [Validators.required, Validators.minLength(5)]],
-      confirmPassword: ['', Validators.required],
-    }, { validator: this.passwordMatchValidator });
+    this.resetPasswordForm = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        newPassword: ['', [Validators.required, Validators.minLength(5)]],
+        confirmPassword: ['', Validators.required],
+      },
+      { validator: this.passwordMatchValidator }
+    );
   }
 
   ngOnInit(): void {}
@@ -64,6 +68,18 @@ export class ResetPasswordComponent implements OnInit {
 
   get confirmPassword() {
     return this.resetPasswordForm.get('confirmPassword');
+  }
+
+  /**
+   * Get error message for the new password field based on validation errors.
+   */
+  getPasswordErrorMessage(): string {
+    if (this.newPassword?.hasError('required')) {
+      return 'Password is required';
+    } else if (this.newPassword?.hasError('minlength')) {
+      return 'Password must be at least 5 characters long';
+    }
+    return '';
   }
 
   passwordMatchValidator(formGroup: FormGroup): null | object {
@@ -99,4 +115,3 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 }
-
