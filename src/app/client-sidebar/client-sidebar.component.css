@@ -1,0 +1,29 @@
+mat-nav-list {
+  width: 240px;
+  height: 100%;
+  background-color: #c00100; 
+  color: white;
+  padding-top: 0;
+  margin-top: 0;
+
+  .mat-list-item {
+    color: white;
+    margin-right: -3px;
+
+    &.mat-list-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .mat-icon-button {
+    color: white;
+  }
+
+  .mat-icon {
+    color: white;
+  }
+
+  .mat-list-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

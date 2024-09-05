@@ -1,0 +1,41 @@
+<mat-nav-list>
+  <mat-list-item (click)="handleNavigation('/dashboard')">
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+    <button mat-icon-button (click)="toggleFullscreen()">
+      <mat-icon>{{ fullscreenMode ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/appointments-history')">
+    <mat-icon>event_note</mat-icon>
+    <span>My Appointments</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/specialists')">
+    <mat-icon>people_alt</mat-icon>
+    <span>Specialists</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/health-records')">
+    <mat-icon>history</mat-icon>
+    <span>My History</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/payments')">
+    <mat-icon>payment</mat-icon>
+    <span>Payments</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/customer-care')">
+    <mat-icon>headset</mat-icon>
+    <span>Customer Care</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/e-pharmacy')">
+    <mat-icon>local_pharmacy</mat-icon>
+    <span>E-Pharmacy</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleNavigation('/light-mode')">
+    <mat-icon>{{ brightnessMode ? 'brightness7' : 'brightness4' }}</mat-icon>
+    <span>Light Mode</span>
+  </mat-list-item>
+  <mat-list-item (click)="handleLogout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </mat-list-item>
+</mat-nav-list>
