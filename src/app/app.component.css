@@ -1,3 +1,75 @@
-body {
-  background-color: azure;
+/* Main container that holds all elements */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Ensure content doesn't overflow outside of viewport */
+}
+
+/* Navbar: Fixed at the top of the page */
+.navbar {
+  background-color: #c00100; /* Red theme */
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Wrapper for content: sidebar and main content */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  margin-top: 25px; /* Space for fixed navbar */
+  overflow-y: auto; /* Enable scrolling for content */
+}
+
+/* Sidebar: Fixed on the left side */
+.sidebar {
+  width: 250px;
+  background-color: #dee1e6; /* Light gray theme */
+  padding: 1rem;
+  position: fixed;
+  top: 60px; /* Align below navbar */
+  bottom: 60px; /* Align above footer */
+  left: 0;
+  overflow-y: auto; /* Enable scrolling for long content */
+  z-index: 1000;
+}
+
+/* Main content area: Positioned next to the sidebar */
+.main-content {
+  flex: 1;
+  margin-left: 0px; /* Leave space for the fixed sidebar */
+  padding: 1rem;
+  background-color: #ccc; /* Light background for main content */
+  overflow-y: auto; /* Enable scrolling for long content */
+}
+
+/* Footer: Fixed at the bottom of the page */
+.footer {
+  background-color: #c00100; /* Red theme */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: 1000;
+}
+
+/* Additional styling for body to ensure full page layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
 }

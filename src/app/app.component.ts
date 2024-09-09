@@ -7,6 +7,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SidebarComponent } from './client-sidebar/client-sidebar.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,9 @@ import { SidebarComponent } from './client-sidebar/client-sidebar.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     PageNotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
