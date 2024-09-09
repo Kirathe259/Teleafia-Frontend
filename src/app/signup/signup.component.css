@@ -1,5 +1,5 @@
 .signup-card {
-  width: 45%;
+  width: 60%;
   margin: 100px auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
@@ -33,7 +33,7 @@
 }
 
 mat-form-field {
-  width: 100%; /* Ensure each field takes full width of the container */
+  width: 85%; /* Ensure each field takes full width of the container */
   margin-bottom: 0px;
 }
 
