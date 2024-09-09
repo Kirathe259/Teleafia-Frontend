@@ -1,18 +1,51 @@
-<div class="dashboard-container">
-  <div class="services-list">
-    <mat-card
-      class="service-card"
-      *ngFor="let service of (filteredServices.length > 3 ? filteredServices : healthServices)"
-      (click)="handleClick(service.route)"
-      matRipple
-    >
-      <div class="service-card-content">
-        <h6>{{ service.name }}</h6>
-        <button mat-icon-button>
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
-      </div>
-    </mat-card>
-  </div>
-</div>
+<mat-card class="greeting-card">
+  <mat-card-header>
+    <mat-card-title>Hello, {{ userName }}!</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="profile-info">
+      <img [src]="userProfilePic" alt="Profile Picture" class="profile-pic" />
+    </div>
+  </mat-card-content>
+</mat-card>
 
+<mat-card class="notification-card">
+  <mat-card-header>
+    <mat-card-title>Appointment Notification</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>You have an appointment with {{ appointmentDetails.doctor }} at {{ appointmentDetails.hospital }}.</p>
+    <p>Appointment Time: {{ appointmentDetails.time }}</p>
+    <p>Type: {{ appointmentDetails.type }}</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="chart-card">
+  <mat-card-header>
+    <mat-card-title>Interaction with Hospital</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div style="position: relative; height: 400px; width: 100%">
+      <canvas baseChart
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [type]="lineChartType">
+      </canvas>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="chart-card">
+  <mat-card-header>
+    <mat-card-title>Service Distribution</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div style="position: relative; height: 400px; width: 100%">
+      <canvas baseChart
+        [data]="donutChartData"
+        [options]="donutChartOptions"
+        [type]="donutChartType">
+      </canvas>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,15 @@
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+
+mat-card {
+  padding: 20px;
+}

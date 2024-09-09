@@ -10,6 +10,8 @@ import { SidebarComponent } from './client-sidebar/client-sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
+import { AppointmentHistoryComponent } from './my-appointments/my-appointments.component';
+
 
 @Component({
   selector: 'app-root',
@@ -25,7 +27,8 @@ import { ClientDashboardComponent } from './client-dashboard/client-dashboard.co
     SidebarComponent,
     FooterComponent,
     NavbarComponent,
-    ClientDashboardComponent
+    ClientDashboardComponent,
+    AppointmentHistoryComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
