@@ -9,6 +9,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SidebarComponent } from './client-sidebar/client-sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     PageNotFoundComponent,
     SidebarComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ClientDashboardComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

@@ -1,1 +1,18 @@
-<p>client-dashboard works!</p>
+<div class="dashboard-container">
+  <div class="services-list">
+    <mat-card
+      class="service-card"
+      *ngFor="let service of (filteredServices.length > 3 ? filteredServices : healthServices)"
+      (click)="handleClick(service.route)"
+      matRipple
+    >
+      <div class="service-card-content">
+        <h6>{{ service.name }}</h6>
+        <button mat-icon-button>
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
