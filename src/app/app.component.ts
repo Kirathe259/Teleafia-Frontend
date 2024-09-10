@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AppointmentHistoryComponent } from './my-appointments/my-appointments.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 @Component({
@@ -30,7 +31,8 @@ import { BookAppointmentComponent } from './book-appointment/book-appointment.co
     NavbarComponent,
     ClientDashboardComponent,
     AppointmentHistoryComponent,
-    BookAppointmentComponent
+    BookAppointmentComponent,
+    PaymentsComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

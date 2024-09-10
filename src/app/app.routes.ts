@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AppointmentHistoryComponent } from './my-appointments/my-appointments.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' }, // Redirects root path to signup
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'client-dashboard', component: ClientDashboardComponent },
   { path: 'myappointments', component: AppointmentHistoryComponent},
   { path: 'book-appointment', component: BookAppointmentComponent },
+  { path: 'payments', component: PaymentsComponent},
   { path: '404', component: PageNotFoundComponent }, // Route for the 404 page
   { path: '**', redirectTo: '404' } // Redirects any undefined paths to the 404 page
 ];

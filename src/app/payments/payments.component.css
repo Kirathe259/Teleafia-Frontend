@@ -1,0 +1,40 @@
+/* Container for the payment form */
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* Form element styling */
+form {
+  width: 100%;
+}
+
+/* Styling for Angular Material form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Button styling */
+button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* Conditional styling for payment options */
+.card-fields,
+.mpesa-fields {
+  display: none;
+}
+
+.card-fields.show,
+.mpesa-fields.show {
+  display: block;
+}

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,7 +12,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';  // Import CommonModule
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';  
 
@@ -21,8 +21,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
   styleUrls: ['./book-appointment.component.css'],
   standalone: true,
   imports: [
-    CommonModule,  // Corrected: Import CommonModule
-    ReactiveFormsModule,  // Corrected: Import ReactiveFormsModule
+    CommonModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
@@ -135,6 +135,7 @@ export class BookAppointmentComponent implements OnInit {
         this.errorMessage = '';
         this.snackBar.open(this.successMessage, '', { duration: 2000 });
         setTimeout(() => {
+          // Navigate to payments page with the appointmentId in the state
           this.router.navigate(['/payments'], { state: { appointmentId: response.appointmentId } });
         }, 2000);
       },

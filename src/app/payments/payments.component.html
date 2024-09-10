@@ -1,0 +1,62 @@
+<div class="payment-container">
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Select Payment Method</mat-label>
+      <mat-select formControlName="paymentMethod">
+        <mat-option value="mpesa">Lipa na Mpesa</mat-option>
+        <mat-option value="card">Card</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- MPesa fields -->
+    <div class="mpesa-fields" [ngClass]="{'show': showMpesaFields}">
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" placeholder="Enter your phone number" />
+        <mat-error *ngIf="paymentForm.get('phoneNumber')?.hasError('required')">
+          Phone number is required
+        </mat-error>
+        <mat-error *ngIf="paymentForm.get('phoneNumber')?.hasError('pattern')">
+          Enter a valid phone number in the format +254XXXXXXXXX
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Card payment fields -->
+    <div class="card-fields" [ngClass]="{'show': showCardFields}">
+      <mat-form-field appearance="fill">
+        <mat-label>Card Number</mat-label>
+        <input matInput formControlName="cardNumber" placeholder="Enter your card number" />
+        <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('required')">
+          Card number is required
+        </mat-error>
+        <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('pattern')">
+          Enter a valid card number (16 digits)
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Card Expiry</mat-label>
+        <input matInput formControlName="cardExpiry" placeholder="MM/YY" />
+        <mat-error *ngIf="paymentForm.get('cardExpiry')?.hasError('required')">
+          Expiry date is required
+        </mat-error>
+        <mat-error *ngIf="paymentForm.get('cardExpiry')?.hasError('pattern')">
+          Enter a valid expiry date in MM/YY format
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Card CVC</mat-label>
+        <input matInput formControlName="cardCvc" placeholder="CVC" />
+        <mat-error *ngIf="paymentForm.get('cardCvc')?.hasError('required')">
+          CVC is required
+        </mat-error>
+        <mat-error *ngIf="paymentForm.get('cardCvc')?.hasError('pattern')">
+          Enter a valid CVC (3 or 4 digits)
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Submit button -->
+    <button mat-raised-button color="primary" type="submit">Initiate Payment</button>
+  </form>
+</div>
