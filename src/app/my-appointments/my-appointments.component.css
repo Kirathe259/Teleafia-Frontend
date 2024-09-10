@@ -4,6 +4,24 @@
   padding: 20px;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Vertically center items */
+  padding: 10px;
+}
+
+.button {
+  margin-left: auto; /* Push the button to the far right */
+  background-color: #c00100; /* Example button background color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .error-message {
   text-align: center;
   color: red;

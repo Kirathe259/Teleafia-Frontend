@@ -21,7 +21,8 @@ import { catchError } from 'rxjs/operators';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
     
   ]
 })
@@ -63,7 +64,7 @@ export class AppointmentHistoryComponent implements OnInit {
     }
   }
 
-  navigateToPayments() {
-    this.router.navigate(['/payments']);
+  navigateToBookAppointment() {
+    this.router.navigate(['/book-appointment']);
   }
 }

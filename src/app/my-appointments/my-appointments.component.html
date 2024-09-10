@@ -1,5 +1,11 @@
 <mat-card>
-  <h2>My Appointments</h2>
+  <div class="header">
+    <h3>My Appointments</h3>
+    <button mat-raised-button color="primary" (click)="navigateToBookAppointment()" style="background-color: #c00100; color: #fff;">
+      Book Appointment
+    </button>
+  </div>
+  
   <table mat-table [dataSource]="appointments" class="mat-elevation-z8">
     <ng-container matColumnDef="fullName">
       <th mat-header-cell *matHeaderCellDef> Full Name </th>
@@ -43,8 +49,6 @@
     {{ error }}
   </div>
 
-  <button mat-raised-button color="primary" (click)="navigateToPayments()" style="background-color: #c00100;">
-    Proceed to Payments
-  </button>
+  
 </mat-card>
 

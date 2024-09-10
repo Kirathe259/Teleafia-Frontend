@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AppointmentHistoryComponent } from './my-appointments/my-appointments.component';
+import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 
 
 @Component({
@@ -28,7 +29,8 @@ import { AppointmentHistoryComponent } from './my-appointments/my-appointments.c
     FooterComponent,
     NavbarComponent,
     ClientDashboardComponent,
-    AppointmentHistoryComponent
+    AppointmentHistoryComponent,
+    BookAppointmentComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
