@@ -2,14 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  margin-bottom: 0;
+  padding: 0 24px;
+  border: 1px solid #c00100; /* Set the border */
+  height: 80px;
+  box-sizing: border-box; /* Ensure the padding doesn't affect the size */
 }
 
 .search-container {
   flex-grow: 1;
-  margin-left: 40%;
-  margin-right: 16px;
+  display: flex;
+  justify-content: center; /* Center the search bar */
+  margin: 0 1px; /* Adjust the left and right margin */
   margin-top: 30px;
+  width: 60%;
 }
 
 .navbar-icons {
@@ -20,6 +26,7 @@
 .notification-icon {
   position: relative;
   color: #c00100;
+  margin-left: 16px; /* Add margin to separate icons */
 }
 
 .notification-badge {

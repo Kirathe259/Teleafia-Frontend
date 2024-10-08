@@ -6,7 +6,7 @@
   overflow: hidden; /* Ensure content doesn't overflow outside of viewport */
 }
 
-/* Navbar: Fixed at the top of the page */
+/* Navbar: Fixed at the top of the page, responsive to sidebar width */
 .navbar {
   background-color: #c00100; /* Red theme */
   color: white;
@@ -14,42 +14,53 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 50px;
+  height: 80px;
   z-index: 900;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: left 0.3s ease; /* Smooth transition when the sidebar opens */
+  width: calc(100% - 250px); /* Adjust width when sidebar is open */
 }
 
-/* Wrapper for content: sidebar and main content */
-.content-wrapper {
-  display: flex;
-  flex: 1;
-  margin-top: 25px; /* Space for fixed navbar */
-  overflow-y: auto; /* Enable scrolling for content */
+.navbar.sidebar-collapsed {
+  width: 100%; /* Full width when sidebar is closed */
 }
 
-/* Sidebar: Fixed on the left side */
+/* Sidebar: Hidden initially, takes full height when toggled */
 .sidebar {
   width: 250px;
   background-color: #dee1e6; /* Light gray theme */
   padding: 1rem;
   position: fixed;
-  top: 60px; /* Align below navbar */
-  bottom: 60px; /* Align above footer */
-  left: 0;
-  overflow-y: auto; /* Enable scrolling for long content */
+  top: 0;
+  bottom: 0;
+  left: -250px; /* Hidden initially */
   z-index: 1000;
+  transition: left 0.3s ease; /* Smooth transition when toggled */
 }
 
-/* Main content area: Positioned next to the sidebar */
+.sidebar.open {
+  left: 0; /* Sidebar slides in when opened */
+}
+
+/* Content wrapper to adjust based on sidebar */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease; /* Smooth transition when sidebar opens */
+}
+
+/* Main content area */
 .main-content {
   flex: 1;
-  margin-left: 0px; /* Leave space for the fixed sidebar */
   padding: 1rem;
   background-color: #dee1e6; /* Light background for main content */
-  overflow-y: auto; /* Enable scrolling for long content */
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 0; /* No margin when sidebar is collapsed */
 }
 
 /* Footer: Fixed at the bottom of the page */
