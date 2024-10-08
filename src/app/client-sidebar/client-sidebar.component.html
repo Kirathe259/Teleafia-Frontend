@@ -1,54 +1,57 @@
-<mat-nav-list>
-  <mat-list-item (click)="handleNavigation('/client-dashboard')">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard</span>
-    <button mat-icon-button (click)="toggleFullscreen()">
-      <mat-icon>{{ fullscreenMode ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
-    </button>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/myappointments')">
-    <mat-icon>event_note</mat-icon>
-    <span>My Appointments</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/specialists')">
-    <mat-icon>people_alt</mat-icon>
-    <span>Specialists</span>
-  </mat-list-item>
-
-  <!-- New Services Link -->
-  <mat-list-item (click)="handleNavigation('/services')">
-    <mat-icon>medical_services</mat-icon>
-    <span>Services</span>
-  </mat-list-item>
-
-  <!-- New Teleclinics Link -->
-  <mat-list-item (click)="handleNavigation('/teleclinics')">
-    <mat-icon>local_hospital</mat-icon>
-    <span>Teleclinics</span>
-  </mat-list-item>
-
-  <mat-list-item (click)="handleNavigation('/health-records')">
-    <mat-icon>history</mat-icon>
-    <span>My History</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/payments')">
-    <mat-icon>payment</mat-icon>
-    <span>Payments</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/customer-care')">
-    <mat-icon>headset</mat-icon>
-    <span>Customer Care</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/e-pharmacy')">
-    <mat-icon>local_pharmacy</mat-icon>
-    <span>E-Pharmacy</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleNavigation('/light-mode')">
-    <mat-icon>{{ brightnessMode ? 'brightness7' : 'brightness1' }}</mat-icon>
-    <span>Light Mode</span>
-  </mat-list-item>
-  <mat-list-item (click)="handleLogout()">
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
-  </mat-list-item>
-</mat-nav-list>
+<div *ngIf="isSidebarOpen" class="sidebar">
+  <mat-nav-list>
+    <mat-list-item (click)="handleNavigation('/client-dashboard')">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+      <button mat-icon-button (click)="toggleFullscreen()">
+        <mat-icon>{{ fullscreenMode ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/myappointments')">
+      <mat-icon>event_note</mat-icon>
+      <span>My Appointments</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/specialists')">
+      <mat-icon>people_alt</mat-icon>
+      <span>Specialists</span>
+    </mat-list-item>
+  
+    <!-- New Services Link -->
+    <mat-list-item (click)="handleNavigation('/services')">
+      <mat-icon>medical_services</mat-icon>
+      <span>Services</span>
+    </mat-list-item>
+  
+    <!-- New Teleclinics Link -->
+    <mat-list-item (click)="handleNavigation('/teleclinics')">
+      <mat-icon>local_hospital</mat-icon>
+      <span>Teleclinics</span>
+    </mat-list-item>
+  
+    <mat-list-item (click)="handleNavigation('/health-records')">
+      <mat-icon>history</mat-icon>
+      <span>My History</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/payments')">
+      <mat-icon>payment</mat-icon>
+      <span>Payments</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/customer-care')">
+      <mat-icon>headset</mat-icon>
+      <span>Customer Care</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/e-pharmacy')">
+      <mat-icon>local_pharmacy</mat-icon>
+      <span>E-Pharmacy</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleNavigation('/light-mode')">
+      <mat-icon>{{ brightnessMode ? 'brightness7' : 'brightness1' }}</mat-icon>
+      <span>Light Mode</span>
+    </mat-list-item>
+    <mat-list-item (click)="handleLogout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </mat-list-item>
+  </mat-nav-list>
+  
+</div>

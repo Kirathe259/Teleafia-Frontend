@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';  // OnInit added here
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { SidebarToggleService } from '../sidebar-toggle.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,13 +20,15 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
   ]
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   brightnessMode = false;
   fullscreenMode = false;
+  isSidebarOpen = false;
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private sidebarToggleService: SidebarToggleService
   ) {}
 
   storeTokens(accessToken: string, refreshToken: string): void {
@@ -79,5 +81,12 @@ export class SidebarComponent {
       document.exitFullscreen();
     }
     this.fullscreenMode = !this.fullscreenMode;
+  }
+
+  ngOnInit() {
+    // Subscribe to sidebar state
+    this.sidebarToggleService.sidebarOpen$.subscribe(isOpen => {
+      this.isSidebarOpen = isOpen;
+    });
   }
 }

@@ -40,12 +40,15 @@ form {
   margin-bottom: 20px;
 }
 
-.mat-form-field email-field {
+.mat-form-field {
   width: 180px;
 }
 
-.mat-form-field password-field {
-  width: 180px;
+
+.credentials {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: auto;
 }
 
 .forgot-password-link {

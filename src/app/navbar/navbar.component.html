@@ -1,1 +1,42 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary" class="navbar">
+  <!-- Sidebar Toggle Icon -->
+  <button mat-icon-button (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Center Search Bar -->
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput type="text" [(ngModel)]="searchQuery">
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <!-- Notification and Profile Icons -->
+  <span class="navbar-icons">
+    <!-- Notification Icon -->
+    <button mat-icon-button (click)="toggleNotifications()">
+      <div class="notification-icon">
+        <mat-icon>notifications</mat-icon>
+        <span class="notification-badge">{{ notificationCount }}</span>
+      </div>
+    </button>
+
+    <!-- Profile Icon -->
+    <button mat-icon-button (click)="goToProfile()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
+
+<!-- Notifications Dropdown -->
+<div *ngIf="showNotifications" class="notifications-dropdown">
+  <mat-list>
+    <mat-list-item *ngFor="let notification of notifications">
+      {{ notification.message }}
+    </mat-list-item>
+  </mat-list>
+</div>

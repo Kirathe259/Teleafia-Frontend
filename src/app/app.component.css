@@ -48,7 +48,7 @@
   flex: 1;
   margin-left: 0px; /* Leave space for the fixed sidebar */
   padding: 1rem;
-  background-color: #e5e6c1; /* Light background for main content */
+  background-color: #dee1e6; /* Light background for main content */
   overflow-y: auto; /* Enable scrolling for long content */
 }
 
